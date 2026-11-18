@@ -1,0 +1,37 @@
+# Kopier til config.yaml og fyll inn.
+
+# Bare streamere med dokumentert tillatelse blir tatt opp og klippet.
+# "bevis" skal peke på hvor tillatelsen står: en e-post, en Discord-melding,
+# en kontrakt eller reglene i et offisielt klippeprogram.
+streamere:
+  - navn: eksempelkanal          # kanalnavnet, uten @
+    plattform: twitch            # twitch, kick eller youtube
+    kreditering: twitch.tv/eksempelkanal
+    tillatelse:
+      gitt: false                # sett til true når du har tillatelsen skriftlig
+      bevis: ""                  # f.eks. "E-post fra eksempelkanal 18.11.2026"
+      dato: ""
+
+datamappe: data
+
+deteksjon:
+  terskel: 4.0          # lavere = flere klipp, høyere = bare de største øyeblikkene
+  vekt_chat: 1.0
+  vekt_lyd: 0.7
+  sekunder_for: 22      # klippet starter så lenge før toppen
+  sekunder_etter: 10
+  min_avstand: 45
+  maks_per_time: 6
+
+video:
+  layout: blur          # blur = hele bildet med uskarp bakgrunn, crop = zoomet inn på midten
+  teksting: true        # krever: pip install -e ".[teksting]"
+  whisper_modell: small
+  sprak: null           # null = finn språket automatisk, ellers f.eks. "en" eller "no"
+  segment_sekunder: 600 # strømmen klippes i biter på så mange sekunder mens den er live
+  behold_opptak: false
+
+publisering:
+  plattformer: [tiktok, instagram, youtube]
+  tittel_mal: "{streamer} | GTA 6"
+  beskrivelse_mal: "Klipp fra {kreditering} (delt med tillatelse) #gta6 #gtavi #gaming"
